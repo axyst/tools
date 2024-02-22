@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>哈希工具</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="index.css"
+    />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script>
-        function generateHash(algorithm) {
-            const text = document.getElementById('text-to-hash').value;
-            let hash;
-            switch (algorithm) {
-                case 'MD5':
-                    hash = CryptoJS.MD5(text);
-                    break;
-                case 'SHA-1':
-                    hash = CryptoJS.SHA1(text);
-                    break;
-                case 'SHA-256':
-                    hash = CryptoJS.SHA256(text);
-                    break;
-                default:
-                    alert('Unsupported algorithm. Please select a valid hashing algorithm.');
-                    return;
-            }
-            document.getElementById('hash-result').textContent = hash.toString();
-        }
-    </script>
-</head>
-<body>
-    <h1>哈希工具</h1>
-    <input type="text" id="text-to-hash" placeholder="输入文本">
-    <button onclick="generateHash('MD5')">MD5</button>
-    <button onclick="generateHash('SHA-1')">SHA-1</button>
-    <button onclick="generateHash('SHA-256')">SHA-256</button>
-    <p>哈希结果: <span id="hash-result"></span></p>
-</body>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-4">哈希工具</h1>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="text-to-hash"
+          class="form-control"
+          placeholder="输入文本"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary btn-hash"
+            type="button"
+            onclick="generateHash('MD5')"
+          >
+            MD5
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-hash"
+            type="button"
+            onclick="generateHash('SHA-1')"
+          >
+            SHA-1
+          </button>
+          <button
+            class="btn btn-outline-secondary btn-hash"
+            type="button"
+            onclick="generateHash('SHA-256')"
+          >
+            SHA-256
+          </button>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="hash-result"
+          class="form-control"
+          placeholder="哈希结果"
+          readonly
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-success"
+            type="button"
+            onclick="copyToClipboard()"
+          >
+            复制结果
+          </button>
+        </div>
+      </div>
+      <p id="copy-notification">已复制结果!</p>
+    </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
