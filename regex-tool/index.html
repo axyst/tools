@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则检验工具</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>正则检验工具</h2>
+      <form id="regex-form">
+        <div class="form-group">
+          <label for="regex-input">正则表达式</label>
+          <input
+            type="text"
+            class="form-control"
+            id="regex-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="test-string">测试文本</label>
+          <textarea
+            class="form-control"
+            id="test-string"
+            rows="4"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">开始识别</button>
+        <button type="button" class="btn btn-primary" id="show-list">
+          结果列表
+        </button>
+        <button type="button" class="btn btn-primary" id="copy-list">
+          复制列表
+        </button>
+      </form>
+      <div id="result" class="mt-3 p-3 border rounded"></div>
+      <p id="copy-notification">已复制结果!</p>
+      <ul id="matches-list" class="list-group mt-3" style="display: none"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -33,7 +33,4 @@ function copyToClipboard() {
 
   const copyNotification = document.getElementById("copy-notification");
   copyNotification.style.display = "inline";
-  setTimeout(() => {
-    copyNotification.style.display = "none";
-  }, 2000);
 }

@@ -14,12 +14,8 @@ body {
     margin: 0 5px;
 }
 
-.diff_insert {
-    background-color: #e6ffe6;
-    text-decoration: none;
-}
-
-.diff_delete {
-    background-color: #ffe6e6;
-    text-decoration: line-through;
+#copy-notification {
+    display: none;
+    color: #28a745;
+    margin-left: 10px;
 }
