@@ -8,18 +8,30 @@ document
     var result = document.getElementById("result");
     var matchesList = document.getElementById("matches-list");
 
-    result.innerHTML = "";
+    result.textContent = "";
     matchesList.innerHTML = "";
     matchesList.style.display = "none";
 
     try {
       var regex = new RegExp(regexInput, "g");
       var match = testString.match(regex);
+
       if (match) {
-        var highlighted = testString.replace(
-          regex,
-          '<span class="bg-success">$&</span>'
-        );
+        var highlighted = testString.replace(regex, function (match) {
+          var escapedMatch = match
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+          var visibleNewlines = escapedMatch.replace(
+            /\n/g,
+            '<span class="bg-success">&nbsp;</span><br>'
+          );
+          return '<span class="bg-success">' + visibleNewlines + "</span>";
+        });
+
+        highlighted = highlighted.replace(/\n/g, "<br>");
         result.innerHTML = highlighted;
 
         match.forEach(function (matchedItem) {
@@ -28,6 +40,8 @@ document
           li.classList.add("list-group-item");
           matchesList.appendChild(li);
         });
+        document.getElementById("show-list").textContent = "隐藏列表";
+        matchesList.style.display = "block";
       } else {
         result.textContent = "没有匹配的结果";
       }
@@ -35,12 +49,14 @@ document
       result.textContent = "正则表达式无效: " + e.message;
     }
   });
-
+  
 document.getElementById("show-list").addEventListener("click", function () {
-  alert("clicked");
   var matchesList = document.getElementById("matches-list");
   matchesList.style.display =
     matchesList.style.display === "none" ? "" : "none";
+  const showList = document.getElementById("show-list");
+  showList.textContent =
+    showList.textContent === "显示列表" ? "隐藏列表" : "显示列表";
 });
 
 document.getElementById("copy-list").addEventListener("click", function () {
