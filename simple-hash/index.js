@@ -20,11 +20,11 @@ function generateHash(algorithm) {
 
 function copyToClipboard() {
   const hashResult = document.getElementById("hash-result");
-  if (hashResult.textContent === "") {
+  if (hashResult.value === "") {
     return;
   }
   const textarea = document.createElement("textarea");
-  textarea.value = hashResult.textContent;
+  textarea.value = hashResult.value;
   document.body.appendChild(textarea);
   textarea.select();
   textarea.setSelectionRange(0, 99999); // For mobile devices

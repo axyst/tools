@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+    padding-top: 50px;
+}
+
+.container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-hash {
+    margin: 0 5px;
+}
+
+.diff_insert {
+    background-color: #e6ffe6;
+    text-decoration: none;
+}
+
+.diff_delete {
+    background-color: #ffe6e6;
+    text-decoration: line-through;
+}

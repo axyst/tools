@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Diff工具</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Diff工具</h1>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <textarea id="text1" class="form-control" placeholder="输入原始文本"></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+                <textarea id="text2" class="form-control" placeholder="输入对照文本"></textarea>
+            </div>
+        </div>
+        <div class="text-center">
+            <button id="diff-btn" class="btn btn-primary mb-3">Diff</button>
+        </div>
+        <div id="result" class="bg-light p-3 border"></div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff-match-patch/20221119.0/diff_match_patch.js"></script>
+</body>
+</html>
