@@ -15,7 +15,7 @@ function generateHash(algorithm) {
       alert("Unsupported algorithm. Please select a valid hashing algorithm.");
       return;
   }
-  document.getElementById("hash-result").textContent = hash.toString();
+  document.getElementById("hash-result").value = hash.toString();
 }
 
 function copyToClipboard() {
