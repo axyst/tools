@@ -1,6 +1,18 @@
-// Convert number to Roman numeral
+// Extended Roman numerals with vinculum
 function toRoman(num) {
     const romanNumerals = [
+      ["M̅", 1000000],
+      ["D̅", 500000],
+      ["C̅M̅", 900000],
+      ["C̅D̅", 400000],
+      ["C̅", 100000],
+      ["X̅C̅", 90000],
+      ["L̅", 50000],
+      ["X̅L̅", 40000],
+      ["X̅", 10000],
+      ["I̅X̅", 9000],
+      ["V̅", 5000],
+      ["I̅V̅", 4000],
       ["M", 1000],
       ["CM", 900],
       ["D", 500],
@@ -15,6 +27,7 @@ function toRoman(num) {
       ["IV", 4],
       ["I", 1],
     ];
+  
     let result = "";
     for (const [roman, value] of romanNumerals) {
       while (num >= value) {
@@ -25,9 +38,16 @@ function toRoman(num) {
     return result;
   }
   
-  // Convert Roman numeral to number
+  // Convert extended Roman numerals with vinculum to number
   function toNumber(roman) {
     const romanToNumber = {
+      "I̅": 1000,
+      "V̅": 5000,
+      "X̅": 10000,
+      "L̅": 50000,
+      "C̅": 100000,
+      "D̅": 500000,
+      "M̅": 1000000,
       I: 1,
       V: 5,
       X: 10,
@@ -36,10 +56,12 @@ function toRoman(num) {
       D: 500,
       M: 1000,
     };
+  
     let total = 0;
     for (let i = 0; i < roman.length; i++) {
-      const current = romanToNumber[roman[i]];
-      const next = romanToNumber[roman[i + 1]] || 0;
+      const current = romanToNumber[roman[i] + roman[i + 1]] || romanToNumber[roman[i]] || 0;
+      const next =
+        romanToNumber[roman[i + 1] + roman[i + 2]] || romanToNumber[roman[i + 1]] || 0;
       if (current < next) {
         total -= current;
       } else {
