@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>罗马数字转换</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h1 class="text-center">罗马数字转换</h1>
+          <div class="form-group">
+            <label for="inputText">输入:</label>
+            <textarea class="form-control" id="inputText" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="caseSelect">转换到:</label>
+            <select class="form-control" id="convertedCaseSelect">
+              <option value="toRoman">罗马数字</option>
+              <option value="toNumber">数字</option>
+            </select>
+          </div>
+          <button id="convertBtn" class="btn btn-primary">转换</button>
+          <div class="form-group mt-3">
+            <label for="resultText">转换结果:</label>
+            <textarea
+              class="form-control"
+              id="resultText"
+              rows="2"
+              readonly
+            ></textarea>
+          </div>
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-success"
+              type="button"
+              onclick="copyToClipboard()"
+            >
+              复制结果
+            </button>
+          </div>
+          <p id="copy-notification">结果已复制!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
